@@ -12,6 +12,23 @@
   ensureHeadLink('apple-touch-icon', 'assets/images/apple-touch-icon.png', { sizes: '180x180' });
   ensureHeadLink('manifest', 'site.webmanifest');
 
+  const headerBrand = document.querySelector('.site-header .brand');
+  if (headerBrand && !headerBrand.querySelector('.header-wordmark')) {
+    const wordmark = document.createElement('img');
+    wordmark.src = 'assets/images/karen-blackwell-script-logo.webp';
+    wordmark.alt = 'Karen M. Blackwell';
+    wordmark.className = 'header-wordmark';
+    wordmark.width = 320;
+    wordmark.height = 52;
+    wordmark.decoding = 'async';
+    wordmark.style.width = 'clamp(220px, 28vw, 320px)';
+    wordmark.style.height = '52px';
+    wordmark.style.objectFit = 'cover';
+    wordmark.style.objectPosition = 'center 46%';
+    wordmark.style.display = 'block';
+    headerBrand.replaceChildren(wordmark);
+  }
+
   document.querySelectorAll('.footer-brand').forEach((brand) => {
     if (brand.querySelector('img')) return;
     const logo = document.createElement('img');
