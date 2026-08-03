@@ -52,20 +52,20 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .site-nav .nav-cta:hover, .site-nav .nav-cta[aria-current="page"] { background: var(--burgundy-dark); color: white; }
 
 main { overflow: hidden; }
-.hero { position: relative; min-height: 650px; display: grid; align-items: center; padding: 4.6rem 0 4.2rem; background:
+.hero { position: relative; min-height: 680px; display: grid; align-items: center; padding: 3.9rem 0; background:
  radial-gradient(circle at 88% 18%, rgba(239,192,188,.75), transparent 25%),
  linear-gradient(135deg, var(--ivory) 0%, #fff 55%, var(--blush) 100%); }
 .hero::before, .page-hero::before { content:""; position:absolute; width: 530px; height: 530px; border-radius:50%; border: 2px solid rgba(123,15,61,.12); left:-330px; top:75px; box-shadow: 0 0 0 16px rgba(239,192,188,.12), 0 0 0 34px rgba(123,15,61,.06); }
-.hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 1.25rem; align-items: center; }
+.hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(320px, .82fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; padding: clamp(2rem, 4vw, 3.5rem); background: rgba(255,255,255,.86); border: 1px solid rgba(123,15,61,.12); border-radius: 32px; box-shadow: var(--shadow); backdrop-filter: blur(10px); }
 .eyebrow { margin: 0 0 1rem; color: var(--burgundy); font-weight: 800; letter-spacing: .1em; text-transform: uppercase; font-size: .79rem; }
 h1, h2, h3 { line-height: 1.15; margin-top: 0; letter-spacing: -.035em; }
 h1 { font-size: clamp(3.15rem, 6vw, 5.8rem); margin-bottom: 1.25rem; }
 h2 { font-size: clamp(2rem, 4vw, 3.35rem); margin-bottom: 1rem; }
 h3 { font-size: 1.3rem; margin-bottom: .55rem; }
 .lede { font-size: clamp(1.16rem, 2vw, 1.45rem); color: var(--teal-dark); max-width: 760px; line-height: 1.55; }
- .hero-copy { position: relative; z-index: 4; padding-right: 1rem; }
+.hero-copy { position: relative; z-index: 4; min-width: 0; }
 .hero-copy .lede { max-width: 700px; }
-.hero-name { position: relative; z-index: 5; width: fit-content; max-width: calc(100% + 72px); margin-right: -72px; padding: .05em .28em .1em 0; background: linear-gradient(90deg, rgba(255,250,246,.99) 0%, rgba(255,250,246,.96) 78%, rgba(255,250,246,.72) 100%); border-radius: 0 20px 20px 0; font-size: clamp(3.05rem, 5.2vw, 5rem); white-space: nowrap; }
+.hero-name { position: relative; z-index: 5; width: auto; max-width: 100%; margin-right: 0; padding: 0; background: none; border-radius: 0; font-size: clamp(3rem, 5.2vw, 5rem); white-space: normal; }
 .hero-actions { display: flex; gap: .85rem; flex-wrap: wrap; margin-top: 2rem; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; min-height: 48px; border-radius: 999px; padding: .78rem 1.2rem; text-decoration: none; font-weight: 780; border: 1px solid transparent; }
 .button-primary { background: var(--burgundy); color: white; }
@@ -74,10 +74,10 @@ h3 { font-size: 1.3rem; margin-bottom: .55rem; }
 .button-secondary:hover { background: var(--blush); }
 .hero-meta { display: flex; flex-wrap: wrap; gap: .7rem 1.2rem; margin-top: 2.1rem; color: var(--muted); font-size: .95rem; }
 .hero-meta span { display: inline-flex; gap: .45rem; align-items: center; }
-.portrait-frame { position: relative; z-index: 2; justify-self: end; align-self: center; width: min(100%, 250px); margin: 2.25rem 0 0 -3.75rem; }
-.portrait-card { position: relative; z-index: 2; padding: .5rem; background: white; border-radius: 23px; box-shadow: 0 16px 36px rgba(62,25,39,.10); }
-.portrait-card img { width: 100%; aspect-ratio: .90; object-fit: cover; object-position: center 20%; border-radius: 17px; }
-.portrait-ring { position: absolute; inset: -14px -14px auto auto; width: 86px; height: 86px; border: 2px solid var(--peach); border-radius: 50%; z-index: 1; opacity: .85; }
+.portrait-frame { position: relative; z-index: 2; justify-self: end; align-self: center; width: 100%; max-width: 430px; margin: 0; }
+.portrait-card { position: relative; z-index: 2; padding: .65rem; background: white; border: 1px solid rgba(123,15,61,.10); border-radius: 28px; box-shadow: 0 18px 42px rgba(62,25,39,.13); }
+.portrait-card img { width: 100%; height: auto; aspect-ratio: auto; object-fit: contain; object-position: center; border-radius: 21px; }
+.portrait-ring { position: absolute; inset: -18px -18px auto auto; width: 108px; height: 108px; border: 2px solid var(--peach); border-radius: 50%; z-index: 1; opacity: .85; }
 
 .section { padding: 6rem 0; }
 .section-sm { padding: 4rem 0; }
@@ -101,7 +101,7 @@ h3 { font-size: 1.3rem; margin-bottom: .55rem; }
 .card-teal { background: var(--teal-dark); color: white; border-color: transparent; }
 .card-teal p { color: #dbe6e8; }
 .number { display:block; font-size: 2.15rem; font-weight: 850; color: var(--burgundy); line-height: 1; margin-bottom: .45rem; }
- .card-source { display:block; margin:-.12rem 0 .35rem; color:var(--burgundy-dark); font-size:.72rem; font-weight:760; line-height:1.3; letter-spacing:.02em; }
+.card-source { display:block; margin:-.12rem 0 .35rem; color:var(--burgundy-dark); font-size:.72rem; font-weight:760; line-height:1.3; letter-spacing:.02em; }
 .label { display:block; color: var(--muted); font-size: .92rem; }
 
 .flagship { display: grid; grid-template-columns: .9fr 1.1fr; gap: 3.5rem; align-items: center; }
@@ -216,27 +216,26 @@ h3 { font-size: 1.3rem; margin-bottom: .55rem; }
 }
 
 @media (min-width: 1025px) {
-  .hero-grid { grid-template-columns: minmax(0, 1fr) clamp(230px, 21vw, 292px); }
-  .portrait-frame { width: 100%; max-width: 292px; margin-left: -3.5rem; }
-  .portrait-card img { aspect-ratio: .86; object-position: center 20%; }
+  .hero-grid { grid-template-columns: minmax(0, 1.18fr) minmax(340px, 430px); }
+  .portrait-frame { width: 100%; max-width: 430px; margin: 0; }
 }
 
 @media (max-width: 1024px) {
   .hero { min-height: auto; padding: 3.7rem 0 3.5rem; }
-  .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-grid { grid-template-columns: 1fr; gap: 2.25rem; padding: clamp(1.75rem, 5vw, 3rem); }
   .hero-copy { padding-right: 0; }
   .hero-name { max-width: none; margin-right: 0; padding-right: 0; white-space: normal; }
   .portrait-frame {
     position: static; display: block; grid-column: 1; justify-self: center;
-    align-self: auto; width: clamp(210px, 30vw, 275px); max-width: 275px;
-    margin: .25rem auto 0;
+    align-self: auto; width: min(100%, 420px); max-width: 420px;
+    margin: 0 auto;
   }
-  .portrait-card { padding: .45rem; border-radius: 24px; box-shadow: 0 14px 32px rgba(62,25,39,.10); }
+  .portrait-card { padding: .55rem; border-radius: 26px; box-shadow: 0 16px 36px rgba(62,25,39,.12); }
   .portrait-card img {
-    display: block; width: 100%; aspect-ratio: .92; object-fit: cover;
-    object-position: center 18%; border-radius: 18px;
+    display: block; width: 100%; height: auto; aspect-ratio: auto; object-fit: contain;
+    object-position: center; border-radius: 20px;
   }
-  .portrait-ring { display: block; width: 70px; height: 70px; inset: -12px -12px auto auto; }
+  .portrait-ring { display: block; width: 84px; height: 84px; inset: -14px -14px auto auto; }
 }
 
 @media (max-width: 960px) {
@@ -261,10 +260,10 @@ h3 { font-size: 1.3rem; margin-bottom: .55rem; }
   .hero-copy { text-align: center; }
   .hero-copy .lede { margin-inline: auto; }
   .hero-actions, .hero-meta { justify-content: center; }
-  .portrait-frame { width: clamp(185px, 46vw, 225px); max-width: 225px; margin-top: .4rem; }
-  .portrait-card { border-radius: 22px; }
-  .portrait-card img { aspect-ratio: .94; border-radius: 16px; }
-  .portrait-ring { width: 60px; height: 60px; inset: -10px -10px auto auto; }
+  .portrait-frame { width: min(100%, 380px); max-width: 380px; margin: 0 auto; }
+  .portrait-card { border-radius: 24px; }
+  .portrait-card img { height: auto; aspect-ratio: auto; border-radius: 18px; }
+  .portrait-ring { width: 68px; height: 68px; inset: -11px -11px auto auto; }
 }
 
 @media (max-width: 680px) {
@@ -272,7 +271,7 @@ h3 { font-size: 1.3rem; margin-bottom: .55rem; }
   .brand-name { font-size: .95rem; }
   .hero { padding-top: 3.2rem; }
   h1 { font-size: clamp(2.75rem, 14vw, 4rem); }
-  .hero-grid { gap: 1.65rem; }
+  .hero-grid { gap: 1.8rem; padding: 1.5rem; border-radius: 24px; }
   .section { padding: 4.5rem 0; }
   .section-head { display: block; }
   .grid-2, .grid-3, .grid-4, .collab-grid { grid-template-columns: 1fr; }
@@ -288,9 +287,9 @@ h3 { font-size: 1.3rem; margin-bottom: .55rem; }
 }
 
 @media (max-width: 480px) {
-  .portrait-frame { width: clamp(160px, 52vw, 190px); max-width: 190px; margin-top: .2rem; }
-  .portrait-card { padding: .38rem; border-radius: 20px; }
-  .portrait-card img { aspect-ratio: .96; object-position: center 18%; border-radius: 15px; }
+  .portrait-frame { width: 100%; max-width: 330px; margin: 0 auto; }
+  .portrait-card { padding: .42rem; border-radius: 21px; }
+  .portrait-card img { height: auto; aspect-ratio: auto; object-position: center; border-radius: 16px; }
   .portrait-ring { display: none; }
 }
 
