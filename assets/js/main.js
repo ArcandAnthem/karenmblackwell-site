@@ -1,4 +1,32 @@
 (() => {
+  const ensureHeadLink = (rel, href, options = {}) => {
+    if (document.head.querySelector(`link[rel="${rel}"][href="${href}"]`)) return;
+    const link = document.createElement('link');
+    link.rel = rel;
+    link.href = href;
+    Object.entries(options).forEach(([key, value]) => link.setAttribute(key, value));
+    document.head.appendChild(link);
+  };
+
+  ensureHeadLink('icon', 'assets/images/favicon-16x16.png', { sizes: '16x16', type: 'image/png' });
+  ensureHeadLink('apple-touch-icon', 'assets/images/apple-touch-icon.png', { sizes: '180x180' });
+  ensureHeadLink('manifest', 'site.webmanifest');
+
+  document.querySelectorAll('.footer-brand').forEach((brand) => {
+    if (brand.querySelector('img')) return;
+    const logo = document.createElement('img');
+    logo.src = 'assets/images/karen-blackwell-script-logo.webp';
+    logo.alt = 'Karen M. Blackwell';
+    logo.width = 360;
+    logo.height = 299;
+    logo.loading = 'lazy';
+    logo.decoding = 'async';
+    logo.style.width = 'min(260px, 100%)';
+    logo.style.height = 'auto';
+    logo.style.marginBottom = '.5rem';
+    brand.replaceChildren(logo);
+  });
+
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.site-nav');
 
