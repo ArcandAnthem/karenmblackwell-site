@@ -1,5 +1,5 @@
 (() => {
-  const BRAND_VERSION = '20260803-1905';
+  const BRAND_VERSION = '20260803-1915';
 
   const ensureHeadLink = (rel, href, options = {}) => {
     if (document.head.querySelector(`link[rel="${rel}"][href="${href}"]`)) return;
@@ -24,7 +24,7 @@
     headerBrand.removeAttribute('style');
 
     const mark = document.createElement('img');
-    mark.src = `/assets/images/kmb-circle.svg?v=${BRAND_VERSION}`;
+    mark.src = `/assets/images/header-k-icon.png?v=${BRAND_VERSION}`;
     mark.alt = '';
     mark.className = 'brand-logo';
     mark.width = 42;
