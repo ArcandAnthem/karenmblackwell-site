@@ -1,5 +1,5 @@
 (() => {
-  const BRAND_VERSION = '20260803-1948';
+  const BRAND_VERSION = '20260803-1950';
 
   const ensureHeadLink = (rel, href, options = {}) => {
     if (document.head.querySelector(`link[rel="${rel}"][href="${href}"]`)) return;
@@ -12,11 +12,11 @@
 
   ensureHeadLink('stylesheet', `/assets/css/brand.css?v=${BRAND_VERSION}`);
 
-  document.head.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"], link[rel="apple-touch-icon"]').forEach((link) => link.remove());
+  document.head.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"], link[rel="apple-touch-icon"], link[rel="manifest"]').forEach((link) => link.remove());
   ensureHeadLink('icon', `/favicon.svg?v=${BRAND_VERSION}`, { sizes: 'any', type: 'image/svg+xml' });
   ensureHeadLink('shortcut icon', `/favicon.svg?v=${BRAND_VERSION}`);
-  ensureHeadLink('apple-touch-icon', `/assets/images/apple-touch-icon.png?v=${BRAND_VERSION}`, { sizes: '180x180' });
-  ensureHeadLink('manifest', '/site.webmanifest');
+  ensureHeadLink('apple-touch-icon', `/assets/images/device-icon.svg?v=${BRAND_VERSION}`, { sizes: 'any', type: 'image/svg+xml' });
+  ensureHeadLink('manifest', `/site.webmanifest?v=${BRAND_VERSION}`);
 
   const headerBrand = document.querySelector('.site-header .brand');
   if (headerBrand) {
@@ -31,9 +31,7 @@
     mark.height = 42;
     mark.decoding = 'async';
     mark.setAttribute('aria-hidden', 'true');
-    mark.addEventListener('error', () => {
-      mark.remove();
-    }, { once: true });
+    mark.addEventListener('error', () => mark.remove(), { once: true });
 
     const name = document.createElement('span');
     name.className = 'brand-name';
