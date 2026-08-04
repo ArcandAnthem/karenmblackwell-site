@@ -1,5 +1,5 @@
 (() => {
-  const BRAND_VERSION = '20260803-1915';
+  const BRAND_VERSION = '20260803-1948';
 
   const ensureHeadLink = (rel, href, options = {}) => {
     if (document.head.querySelector(`link[rel="${rel}"][href="${href}"]`)) return;
@@ -13,9 +13,9 @@
   ensureHeadLink('stylesheet', `/assets/css/brand.css?v=${BRAND_VERSION}`);
 
   document.head.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"], link[rel="apple-touch-icon"]').forEach((link) => link.remove());
-  ensureHeadLink('icon', `/favicon-k.svg?v=${BRAND_VERSION}`, { sizes: 'any', type: 'image/svg+xml' });
-  ensureHeadLink('shortcut icon', `/favicon-k.svg?v=${BRAND_VERSION}`);
-  ensureHeadLink('apple-touch-icon', `/assets/images/apple-touch-icon.svg?v=${BRAND_VERSION}`, { sizes: 'any' });
+  ensureHeadLink('icon', `/favicon.svg?v=${BRAND_VERSION}`, { sizes: 'any', type: 'image/svg+xml' });
+  ensureHeadLink('shortcut icon', `/favicon.svg?v=${BRAND_VERSION}`);
+  ensureHeadLink('apple-touch-icon', `/assets/images/apple-touch-icon.png?v=${BRAND_VERSION}`, { sizes: '180x180' });
   ensureHeadLink('manifest', '/site.webmanifest');
 
   const headerBrand = document.querySelector('.site-header .brand');
@@ -24,13 +24,16 @@
     headerBrand.removeAttribute('style');
 
     const mark = document.createElement('img');
-    mark.src = `/assets/images/header-k-icon.png?v=${BRAND_VERSION}`;
+    mark.src = `/assets/images/kmb-circle.svg?v=${BRAND_VERSION}`;
     mark.alt = '';
     mark.className = 'brand-logo';
     mark.width = 42;
     mark.height = 42;
     mark.decoding = 'async';
     mark.setAttribute('aria-hidden', 'true');
+    mark.addEventListener('error', () => {
+      mark.remove();
+    }, { once: true });
 
     const name = document.createElement('span');
     name.className = 'brand-name';
