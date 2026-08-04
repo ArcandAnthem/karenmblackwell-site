@@ -1,4 +1,6 @@
 (() => {
+  const BRAND_VERSION = '20260803-1803';
+
   const ensureHeadLink = (rel, href, options = {}) => {
     if (document.head.querySelector(`link[rel="${rel}"][href="${href}"]`)) return;
     const link = document.createElement('link');
@@ -8,26 +10,52 @@
     document.head.appendChild(link);
   };
 
-  ensureHeadLink('icon', 'assets/images/favicon-16x16.png', { sizes: '16x16', type: 'image/png' });
-  ensureHeadLink('apple-touch-icon', 'assets/images/apple-touch-icon.png', { sizes: '180x180' });
-  ensureHeadLink('manifest', 'site.webmanifest');
+  ensureHeadLink('stylesheet', `/assets/css/brand.css?v=${BRAND_VERSION}`);
+
+  document.head.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]').forEach((link) => link.remove());
+  ensureHeadLink('icon', `/favicon.svg?v=${BRAND_VERSION}`, { sizes: 'any', type: 'image/svg+xml' });
+  ensureHeadLink('shortcut icon', `/favicon.svg?v=${BRAND_VERSION}`);
+  ensureHeadLink('apple-touch-icon', '/assets/images/apple-touch-icon.png', { sizes: '180x180' });
+  ensureHeadLink('manifest', '/site.webmanifest');
 
   const headerBrand = document.querySelector('.site-header .brand');
-  if (headerBrand && !headerBrand.querySelector('.header-wordmark')) {
-    const wordmark = document.createElement('img');
-    wordmark.src = 'assets/images/karen-blackwell-script-logo.webp';
-    wordmark.alt = 'Karen M. Blackwell';
-    wordmark.className = 'header-wordmark';
-    wordmark.width = 320;
-    wordmark.height = 52;
-    wordmark.decoding = 'async';
-    wordmark.style.width = 'clamp(220px, 28vw, 320px)';
-    wordmark.style.height = '52px';
-    wordmark.style.objectFit = 'cover';
-    wordmark.style.objectPosition = 'center 46%';
-    wordmark.style.display = 'block';
-    headerBrand.replaceChildren(wordmark);
+  if (headerBrand) {
+    headerBrand.className = 'brand brand-compact';
+    headerBrand.removeAttribute('style');
+
+    const mark = document.createElement('img');
+    mark.src = `/assets/images/kmb-circle.svg?v=${BRAND_VERSION}`;
+    mark.alt = '';
+    mark.className = 'brand-logo';
+    mark.width = 42;
+    mark.height = 42;
+    mark.decoding = 'async';
+    mark.setAttribute('aria-hidden', 'true');
+
+    const name = document.createElement('span');
+    name.className = 'brand-name';
+    name.textContent = 'Karen M. Blackwell';
+
+    headerBrand.replaceChildren(mark, name);
   }
+
+  const socialIcons = {
+    linkedin: '<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M7.2 10v7M7.2 7.1v.1M11 17v-7m0 3.1c.7-2.1 5.8-2.3 5.8 1.7V17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+    instagram: '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.7" r=".8" fill="currentColor" stroke="none"/></svg>'
+  };
+
+  document.querySelectorAll('.footer-links a').forEach((link) => {
+    const href = link.getAttribute('href') || '';
+    const type = href.includes('linkedin.com') ? 'linkedin' : href.includes('instagram.com') ? 'instagram' : null;
+    if (!type || link.querySelector('.social-link-icon')) return;
+
+    const icon = document.createElement('span');
+    icon.className = 'social-link-icon';
+    icon.setAttribute('aria-hidden', 'true');
+    icon.innerHTML = socialIcons[type];
+    link.classList.add('social-link');
+    link.prepend(icon);
+  });
 
   document.querySelectorAll('.footer-brand').forEach((brand) => {
     if (brand.querySelector('img')) return;
