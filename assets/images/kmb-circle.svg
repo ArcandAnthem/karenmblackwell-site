@@ -1,5 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="KMB">
-  <circle cx="32" cy="32" r="29" fill="#ffffff" stroke="#efc0bc" stroke-width="3"/>
-  <circle cx="32" cy="32" r="25" fill="none" stroke="#f8e2e3" stroke-width="1.5"/>
-  <text x="32" y="39" fill="#7b0f3d" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle">KMB</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Karen M. Blackwell monogram">
+  <circle cx="32" cy="32" r="29" fill="#f8d2cb"/>
+  <g fill="none" stroke="#7b0f3d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M13 29 C19 20 29 16 39 13 C44 11 47 8 47 5 C47 2 44 2 42 4 C38 8 36 18 34 27 C31 39 28 49 24 55"/>
+    <path d="M32 31 C24 33 17 38 16 43 C15 47 19 50 23 49 C29 48 33 42 36 35"/>
+    <path d="M34 30 C40 27 41 18 46 15 C50 12 54 14 54 18 C54 22 50 25 46 25"/>
+    <path d="M35 31 C41 36 47 44 50 54"/>
+  </g>
 </svg>
