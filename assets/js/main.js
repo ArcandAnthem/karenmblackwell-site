@@ -1,5 +1,5 @@
 (() => {
-  const BRAND_VERSION = '20260803-2025';
+  const BRAND_VERSION = '20260803-2030';
 
   const ensureHeadLink = (rel, href, options = {}) => {
     const existing = [...document.head.querySelectorAll(`link[rel="${rel}"]`)]
@@ -85,7 +85,7 @@
       html: `<section class="section section-white aeo-answer" id="recognition-summary" aria-labelledby="recognition-summary-heading">
         <div class="container grid-2">
           <div><p class="eyebrow">Recognition summary</p><h2 id="recognition-summary-heading">What recognition has Karen M. Blackwell received?</h2></div>
-          <div><p class="lede">Karen M. Blackwell’s research, teaching, and doctoral development have been recognized through the American Marketing Association Foundation Valuing Diversity PhD Scholarship, the California State University Chancellor’s Doctoral Incentive Program, Quality Matters course review, and university teaching recognition.</p><p><a href="research.html">Explore the research behind these milestones →</a> &nbsp; <a href="teaching.html">See her teaching approach →</a></p></div>
+          <div><p class="lede">Karen M. Blackwell’s research, teaching, and doctoral development have been recognized through the American Marketing Association Foundation Valuing Diversity PhD Scholarship, the California State University Chancellor’s Doctoral Incentive Program, Quality Matters course review, and university teaching recognition.</p><div class="aeo-cta-stack"><a class="button button-primary" href="research.html">Explore the research</a><a class="button button-secondary" href="teaching.html">See her teaching approach</a></div></div>
         </div>
       </section>`
     },
