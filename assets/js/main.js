@@ -1,8 +1,10 @@
 (() => {
-  const BRAND_VERSION = '20260803-1950';
+  const BRAND_VERSION = '20260803-2005';
 
   const ensureHeadLink = (rel, href, options = {}) => {
-    if (document.head.querySelector(`link[rel="${rel}"][href="${href}"]`)) return;
+    const existing = [...document.head.querySelectorAll(`link[rel="${rel}"]`)]
+      .find((link) => link.getAttribute('href') === href);
+    if (existing) return;
     const link = document.createElement('link');
     link.rel = rel;
     link.href = href;
@@ -12,16 +14,26 @@
 
   ensureHeadLink('stylesheet', `/assets/css/brand.css?v=${BRAND_VERSION}`);
 
-  document.head.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"], link[rel="apple-touch-icon"], link[rel="manifest"]').forEach((link) => link.remove());
+  document.head.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"], link[rel="apple-touch-icon"]').forEach((link) => link.remove());
   ensureHeadLink('icon', `/favicon.svg?v=${BRAND_VERSION}`, { sizes: 'any', type: 'image/svg+xml' });
+  ensureHeadLink('icon', `/assets/images/favicon-16x16.png?v=${BRAND_VERSION}`, { sizes: '16x16', type: 'image/png' });
   ensureHeadLink('shortcut icon', `/favicon.svg?v=${BRAND_VERSION}`);
-  ensureHeadLink('apple-touch-icon', `/assets/images/device-icon.svg?v=${BRAND_VERSION}`, { sizes: 'any', type: 'image/svg+xml' });
+  ensureHeadLink('apple-touch-icon', `/assets/images/apple-touch-icon.png?v=${BRAND_VERSION}`, { sizes: '180x180' });
   ensureHeadLink('manifest', `/site.webmanifest?v=${BRAND_VERSION}`);
+
+  if (window.location.pathname === '/index.html') {
+    window.history.replaceState(null, '', `/${window.location.search}${window.location.hash}`);
+  }
+
+  document.querySelectorAll('a[href="index.html"], a[href="./index.html"], a[href="/index.html"]').forEach((link) => {
+    link.setAttribute('href', '/');
+  });
 
   const headerBrand = document.querySelector('.site-header .brand');
   if (headerBrand) {
     headerBrand.className = 'brand brand-compact';
     headerBrand.removeAttribute('style');
+    headerBrand.setAttribute('href', '/');
 
     const mark = document.createElement('img');
     mark.src = `/assets/images/kmb-circle.svg?v=${BRAND_VERSION}`;
