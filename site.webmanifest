@@ -7,6 +7,11 @@
   "background_color": "#fffaf6",
   "theme_color": "#7b0f3d",
   "icons": [
-    {"src": "/assets/images/social-profile-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}
+    {
+      "src": "/assets/images/device-icon.svg?v=20260803-1950",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
   ]
 }
