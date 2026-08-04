@@ -1,5 +1,5 @@
 (() => {
-  const BRAND_VERSION = '20260803-2030';
+  const BRAND_VERSION = '20260803-2032';
 
   const ensureHeadLink = (rel, href, options = {}) => {
     const existing = [...document.head.querySelectorAll(`link[rel="${rel}"]`)]
@@ -36,7 +36,7 @@
       html: `<section class="section section-blush aeo-answer" id="what-karen-studies" aria-labelledby="what-karen-studies-heading">
         <div class="container grid-2">
           <div><p class="eyebrow">Research focus</p><h2 id="what-karen-studies-heading">What does Karen M. Blackwell study?</h2></div>
-          <div><p class="lede">Karen M. Blackwell studies consumer behavior across the healthcare ecosystem, including how people experience and navigate healthcare professionals, organizations, systems, information, digital tools, and emerging technologies.</p><p><a href="research.html">Explore her healthcare consumer behavior research →</a></p></div>
+          <div><p class="lede">Karen M. Blackwell studies consumer behavior across the healthcare ecosystem, including how people experience and navigate healthcare professionals, organizations, systems, information, digital tools, and emerging technologies.</p><div class="aeo-cta-stack"><a class="button button-primary" href="research.html">Explore the research</a></div></div>
         </div>
       </section>`
     },
@@ -46,7 +46,7 @@
       html: `<section class="section section-white aeo-answer" id="what-is-medical-dismissal" aria-labelledby="medical-dismissal-answer-heading">
         <div class="container grid-2">
           <div><p class="eyebrow">Research question</p><h2 id="medical-dismissal-answer-heading">What is medical dismissal?</h2></div>
-          <div><p class="lede">Medical dismissal is a patient-perceived healthcare experience in which a person does not feel adequately heard, believed, understood, or taken seriously during an encounter.</p><p>Karen M. Blackwell’s doctoral research examines this experience from a consumer-behavior perspective while protecting unpublished theory, measurement development, study design, and future research plans.</p><p><a href="experience.html">See the healthcare experience informing this research →</a></p></div>
+          <div><p class="lede">Medical dismissal is a patient-perceived healthcare experience in which a person does not feel adequately heard, believed, understood, or taken seriously during an encounter.</p><p>Karen M. Blackwell’s doctoral research examines this experience from a consumer-behavior perspective while protecting unpublished theory, measurement development, study design, and future research plans.</p><div class="aeo-cta-stack"><a class="button button-primary" href="experience.html">See the experience behind the research</a></div></div>
         </div>
       </section>`
     },
@@ -57,7 +57,7 @@
         <div class="container">
           <div class="section-head"><div><p class="eyebrow">Teaching approach</p><h2 id="teaching-approach-heading">How does Karen M. Blackwell approach marketing education?</h2><p class="lede">Karen M. Blackwell’s teaching combines applied learning, inclusive and transparent course design, ethical AI integration, current research, and real-world marketing decision-making.</p></div></div>
           <div class="metric-row" aria-label="Teaching at a glance"><span class="metric-chip">Applied and experiential learning</span><span class="metric-chip">Inclusive course design</span><span class="metric-chip">Ethical AI integration</span><span class="metric-chip">Research literacy</span><span class="metric-chip">Professional skill development</span></div>
-          <p><a href="recognition.html">View teaching recognition and evidence →</a></p>
+          <div class="aeo-cta-stack"><a class="button button-primary" href="recognition.html">View teaching recognition</a></div>
         </div>
       </section>`
     },
@@ -75,7 +75,7 @@
             <div class="card"><h3><a href="teaching.html">University marketing education</a></h3></div>
             <div class="card"><h3>Entrepreneurship and strategic consulting</h3></div>
           </div>
-          <p><a href="research.html">Explore how this experience informs her research →</a></p>
+          <div class="aeo-cta-stack"><a class="button button-primary" href="research.html">Explore the research connection</a></div>
         </div>
       </section>`
     },
@@ -95,7 +95,7 @@
       html: `<section class="section section-white aeo-answer" id="collaboration-types" aria-labelledby="collaboration-types-heading">
         <div class="container grid-2">
           <div><p class="eyebrow">Collaboration fit</p><h2 id="collaboration-types-heading">What types of collaboration is Karen M. Blackwell considering?</h2></div>
-          <div><p class="lede">Karen M. Blackwell welcomes defined opportunities involving research, grants, appropriate datasets or participant populations, healthcare settings, complementary methodological expertise, scholarly presentations, faculty opportunities, and selected professional-practice engagements.</p><p><a href="research.html">Review the research platform →</a> &nbsp; <a href="experience.html">Review relevant experience →</a></p></div>
+          <div><p class="lede">Karen M. Blackwell welcomes defined opportunities involving research, grants, appropriate datasets or participant populations, healthcare settings, complementary methodological expertise, scholarly presentations, faculty opportunities, and selected professional-practice engagements.</p><div class="aeo-cta-stack"><a class="button button-primary" href="research.html">Review the research platform</a><a class="button button-secondary" href="experience.html">Review relevant experience</a></div></div>
         </div>
       </section>`
     }
