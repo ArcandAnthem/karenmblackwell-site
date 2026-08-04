@@ -1,5 +1,5 @@
 (() => {
-  const BRAND_VERSION = '20260803-1830';
+  const BRAND_VERSION = '20260803-1905';
 
   const ensureHeadLink = (rel, href, options = {}) => {
     if (document.head.querySelector(`link[rel="${rel}"][href="${href}"]`)) return;
